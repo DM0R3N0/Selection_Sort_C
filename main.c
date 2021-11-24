@@ -44,29 +44,27 @@ main (int argc, char **argv)
 }
 
 // Funcao de Ordenacao por Selection Sort
-void
-selection_sort (int *a)
+
+// Funcao de Ordenacao por Selection Sort
+void selection_sort (int *v)
 {
-  int i, j, k, aux, troca;
+  int i, j, menor, troca;
 
   for (i = 0; i < MAX - 1; i++)
     {
-      troca = 0;
-      k = i;
-      aux = a[i];
+      menor = i;
       for (j = i + 1; j < MAX; j++)
 	{
-	  if (a[j] < aux)
-	    {
-	      k = j;
-	      aux = a[j];
-	      troca = 1;
-	    }
+	  if (v[j] < v[menor])
+	    menor = j;
 	}
-      if (troca)
+      if (i != menor)
 	{
-	  a[k] = a[i];
-	  a[i] = aux;
+	  troca = v[i];
+	  v[i] = v[menor];
+	  v[menor] = troca;
 	}
     }
+
 }
+
